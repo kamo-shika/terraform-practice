@@ -22,5 +22,14 @@
 
 [【AWS】TerraformでAWS管理ポリシーを使用する](https://qiita.com/nossy/items/ac976f7382bd14a6d099)
 
+### バケットの設定で非推奨項目があった
 
+[『実践Terraform』でバケット定義の書き方が非推奨と警告されてしまう](https://qiita.com/Kazuyaa/items/612e678cccf0b23a2d5e)で紹介されていたが、S3バケットの記述方法がバージョンアップによって変わったようだ。
+
+また書籍だとACLを利用していたので、バケットポリシーを利用するよう変更した。
+[S3のACLの非推奨になったのでBucketPolicyへ移行してみた](https://dev.classmethod.jp/articles/s3-acl-bucketpolicy/)
+
+### *.tf 内で自身のAWSアカウントIDにアクセスする
+
+[*.tf 内で AWS アカウント ID を自動参照(取得)する aws_caller_identity Data Source AWS Terraform](https://qiita.com/gongo/items/a2b83d7402b97ef43574) を参照。
 
