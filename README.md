@@ -33,3 +33,18 @@
 
 [*.tf 内で AWS アカウント ID を自動参照(取得)する aws_caller_identity Data Source AWS Terraform](https://qiita.com/gongo/items/a2b83d7402b97ef43574) を参照。
 
+### terraform graph で依存関係を図に出力する
+
+構成図を自動で出したかったが、terraform の標準機能ではできなかった。。。  
+※AWSとかは逆に構成図からIaCコード(CloudFormation)を出力しようとしてるらしい。卵が先か鶏が先か？
+[AWS 環境の可視化を加速する Diagram-as-code とAmazon Bedrockの活用](https://aws.amazon.com/jp/blogs/news/aws-visualization-diagram-as-code-amazon-bedrock/)
+
+生成AIをかませればできそうだけど、今回は個人勉強用だったので、`terraform graph` の結果を図に出力できるようにした。
+
+- dev container に `graphviz` をインストールする。
+  - dev container の `postCreateCommand` で複数コマンドを実行できるようにする。
+    - [.devcontainer/postCreateCommand.sh にコマンドを列記する その3](https://zenn.dev/rhene/scraps/b468efe66169e5) の方法を採用した。
+    - `graphviz` のインストールは、[Graphviz - Download](https://graphviz.org/download/) の `sudo apt install graphviz` を実行する。
+  - `terraform graph -type=plan | dot -Tpng >graph.png` を実行する。
+
+これで依存関係を図に出力できるようになった。
